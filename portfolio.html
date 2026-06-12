@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spinach The Cow — App Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #0D0D0D;
+      --surface:    #161616;
+      --border:     #222222;
+      --silver:     #9A9A9A;
+      --white:      #EFEFEF;
+      --teal:       #00D2BE;
+      --teal-dim:   rgba(0,210,190,0.12);
+      --teal-mute:  rgba(0,210,190,0.06);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ──────────────────────────────────────────── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.75rem 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-brand span { color: var(--teal); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-count {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--silver);
+    }
+
+    /* ── HERO ─────────────────────────────────────────── */
+    .hero {
+      padding: 5rem 3rem 4.5rem;
+      border-bottom: 1px solid var(--border);
+      max-width: 860px;
+    }
+
+    .hero-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: clamp(3.2rem, 9vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-name em {
+      font-style: normal;
+      color: var(--teal);
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--silver);
+      max-width: 460px;
+      line-height: 1.75;
+    }
+
+    /* ── F1 TICKER ────────────────────────────────────── */
+    .f1-bar {
+      background: var(--teal-mute);
+      border-top: 1px solid rgba(0,210,190,0.15);
+      border-bottom: 1px solid var(--border);
+      padding: 0.85rem 3rem;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .f1-bar-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 500;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .f1-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .f1-stats {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .f1-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .f1-stat-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--silver);
+    }
+
+    .f1-stat-value {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+
+    .f1-stat-pts {
+      font-size: 0.7rem;
+      color: var(--teal);
+      font-weight: 500;
+    }
+
+    .f1-divider {
+      width: 1px;
+      height: 1.2rem;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    /* ── PROJECTS ─────────────────────────────────────── */
+    .projects {
+      padding: 3.5rem 3rem 6rem;
+    }
+
+    .projects-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .projects-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--silver);
+    }
+
+    .projects-total {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: #3a3a3a;
+    }
+
+    /* ── GRID ─────────────────────────────────────────── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px;
+      background: var(--border);
+    }
+
+    /* ── CARD ─────────────────────────────────────────── */
+    .card {
+      background: var(--bg);
+      padding: 2rem 2.25rem 2.25rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.18s;
+    }
+
+    .card:hover { background: var(--surface); }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.1rem;
+    }
+
+    .card-pill {
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: var(--teal-dim);
+      padding: 0.28em 0.7em;
+      border-radius: 2px;
+    }
+
+    .card-index {
+      font-size: 0.62rem;
+      color: #333;
+      letter-spacing: 0.1em;
+    }
+
+    .card-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 1;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.9rem;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--silver);
+      line-height: 1.72;
+      flex: 1;
+    }
+
+    .card-footer {
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      opacity: 0;
+      transition: opacity 0.18s;
+    }
+
+    .card:hover .card-footer { opacity: 1; }
+
+    .card-footer svg {
+      width: 10px; height: 10px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── COMING SOON ──────────────────────────────────── */
+    .card--soon { cursor: default; }
+    .card--soon:hover { background: var(--bg); }
+    .card--soon .card-name { color: #444; }
+    .card--soon .card-desc { color: #323232; }
+    .card-pill--soon {
+      color: var(--silver);
+      background: rgba(154,154,154,0.1);
+    }
+
+    /* ── FOOTER ───────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #333;
+    }
+
+    footer a { color: #333; text-decoration: none; }
+    footer a:hover { color: var(--silver); }
+
+    /* ── RESPONSIVE ───────────────────────────────────── */
+    @media (max-width: 620px) {
+      nav       { padding: 1.25rem 1.5rem; }
+      .hero     { padding: 3rem 1.5rem 2.5rem; }
+      .f1-bar   { padding: 0.75rem 1.5rem; gap: 1.25rem; }
+      .projects { padding: 2.5rem 1.5rem 4rem; }
+      footer    { padding: 1.5rem; }
+      .card     { padding: 1.75rem 1.5rem 2rem; }
+      .f1-stats { gap: 1.25rem; }
+      .f1-divider { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card, .card-footer, .f1-dot { transition: none; animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand">Spinach <span>The Cow</span></a>
+    <div class="nav-right">
+      <span class="nav-count">5 Projects</span>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <p class="hero-label">Independent Software</p>
+    <h1 class="hero-name">Spinach<br>The <em>Cow.</em></h1>
+    <p class="hero-desc">
+      Consumer and utility apps built independently, from idea to production. Each project targets a specific gap — not a trend.
+    </p>
+  </header>
+
+  <!-- F1 STATUS BAR -->
+  <div class="f1-bar">
+    <div class="f1-bar-label">
+      <span class="f1-dot"></span>
+      Mercedes F1 &middot; 2026 Season
+    </div>
+    <div class="f1-stats">
+      <div class="f1-stat">
+        <span class="f1-stat-label">Constructors</span>
+        <span class="f1-stat-value">P1</span>
+        <span class="f1-stat-pts">244 pts</span>
+      </div>
+      <div class="f1-divider"></div>
+      <div class="f1-stat">
+        <span class="f1-stat-label">Antonelli</span>
+        <span class="f1-stat-value">P1</span>
+        <span class="f1-stat-pts">151 pts</span>
+      </div>
+      <div class="f1-divider"></div>
+      <div class="f1-stat">
+        <span class="f1-stat-label">Russell</span>
+        <span class="f1-stat-value">P2</span>
+        <span class="f1-stat-pts">93 pts</span>
+      </div>
+      <div class="f1-divider"></div>
+      <div class="f1-stat">
+        <span class="f1-stat-label">Last Race</span>
+        <span class="f1-stat-value">Monaco GP</span>
+        <span class="f1-stat-pts">Antonelli wins</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="projects">
+    <div class="projects-header">
+      <span class="projects-title">Projects</span>
+      <span class="projects-total">5 of 5</span>
+    </div>
+
+    <div class="grid">
+
+      <div class="card card--soon">
+        <div class="card-top">
+          <span class="card-pill card-pill--soon">Coming Soon</span>
+          <span class="card-index">01</span>
+        </div>
+        <h2 class="card-name">Decide</h2>
+        <p class="card-desc">
+          A mobile app for reducing decision fatigue. Takes a category — where to eat, what to do, where to go — and returns a ranked shortlist of real nearby options, scored by a custom Excitement Index built on Google Places data.
+        </p>
+      </div>
+
+      <a href="https://layflat.spinachthecow.com" target="_blank" rel="noopener" class="card">
+        <div class="card-top">
+          <span class="card-pill">Web · Crowdsourced</span>
+          <span class="card-index">02</span>
+        </div>
+        <h2 class="card-name">LayFlat</h2>
+        <p class="card-desc">
+          A crowdsourced guide to sleeping in airports. Travelers submit and rate specific spots by noise level, lighting, and security activity. Aggregated into Sleep Scores and noise heatmaps so the next person knows exactly where to go.
+        </p>
+        <div class="card-footer">
+          Open <svg viewBox="0 0 24 24"><polyline points="5 12 19 12"/><polyline points="13 6 19 12 13 18"/></svg>
+        </div>
+      </a>
+
+      <a href="https://breakeighty.spinachthecow.com" target="_blank" rel="noopener" class="card">
+        <div class="card-top">
+          <span class="card-pill">Mobile · Golf</span>
+          <span class="card-index">03</span>
+        </div>
+        <h2 class="card-name">BreakEighty</h2>
+        <p class="card-desc">
+          A golf performance tracker focused on the mid-handicap plateau. Records and analyzes strokes by hole, shot type, and distance to surface the recurring patterns that keep scores in the 80s.
+        </p>
+        <div class="card-footer">
+          Open <svg viewBox="0 0 24 24"><polyline points="5 12 19 12"/><polyline points="13 6 19 12 13 18"/></svg>
+        </div>
+      </a>
+
+      <a href="https://clutch.spinachthecow.com" target="_blank" rel="noopener" class="card">
+        <div class="card-top">
+          <span class="card-pill">Mobile · Marketplace</span>
+          <span class="card-index">04</span>
+        </div>
+        <h2 class="card-name">Clutch</h2>
+        <p class="card-desc">
+          An on-demand marketplace connecting restaurants, caterers, and event operators with qualified kitchen professionals. When you need an extra set of hands — prep cook, line cook, sous chef — Clutch puts vetted talent in front of you fast.
+        </p>
+        <div class="card-footer">
+          Open <svg viewBox="0 0 24 24"><polyline points="5 12 19 12"/><polyline points="13 6 19 12 13 18"/></svg>
+        </div>
+      </a>
+
+      <a href="https://puddinpop.spinachthecow.com" target="_blank" rel="noopener" class="card">
+        <div class="card-top">
+          <span class="card-pill">Mobile · Social</span>
+          <span class="card-index">05</span>
+        </div>
+        <h2 class="card-name">PuddinPop</h2>
+        <p class="card-desc">
+          A wishlist and gift coordination app. Users maintain a private list of things they want, share it selectively with friends and family, and recipients can quietly claim items to avoid duplicates — without spoiling the surprise.
+        </p>
+        <div class="card-footer">
+          Open <svg viewBox="0 0 24 24"><polyline points="5 12 19 12"/><polyline points="13 6 19 12 13 18"/></svg>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 <a href="https://spinachthecow.com">spinachthecow.com</a></p>
+    <p>Independent Software</p>
+  </footer>
+
+</body>
+</html>
