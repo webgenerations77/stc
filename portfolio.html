@@ -300,13 +300,37 @@
     }
 
     /* ── COMING SOON ──────────────────────────────────── */
-    .card--soon { cursor: default; }
+    .card--soon {
+      cursor: default;
+      outline: 1px solid rgba(147,51,234,0.5);
+    }
     .card--soon:hover { background: var(--bg); }
-    .card--soon .card-name { color: #444; }
-    .card--soon .card-desc { color: #323232; }
     .card-pill--soon {
-      color: var(--silver);
-      background: rgba(154,154,154,0.1);
+      color: #c084fc;
+      background: rgba(147,51,234,0.12);
+    }
+
+    /* ── ALPHA ────────────────────────────────────────── */
+    .card-pill--alpha {
+      color: #FBBF24;
+      background: rgba(251,191,36,0.12);
+    }
+
+    /* ── BETA ─────────────────────────────────────────── */
+    .card-pill--beta {
+      color: #60A5FA;
+      background: rgba(96,165,250,0.12);
+    }
+
+    /* ── PRIVATE ──────────────────────────────────────── */
+    .card--private {
+      cursor: default;
+      outline: 1px solid rgba(236,72,153,0.4);
+    }
+    .card--private:hover { background: var(--bg); }
+    .card-pill--private {
+      color: #f472b6;
+      background: rgba(236,72,153,0.12);
     }
 
     /* ── FOOTER ───────────────────────────────────────── */
@@ -352,13 +376,13 @@
   <nav>
     <a href="/" class="nav-brand">Spinach <span>The Cow</span></a>
     <div class="nav-right">
-      <span class="nav-count">6 Projects</span>
+      <span class="nav-count">8 Projects</span>
     </div>
   </nav>
 
   <header class="hero">
     <p class="hero-label">Independent Software</p>
-    <h1 class="hero-name">Spinach<br>The <em>Cow.</em></h1>
+    <h1 class="hero-name">Spinach<br>The <em>Cow</em></h1>
     <p class="hero-desc">
       Consumer and utility apps built independently, from idea to production. Each project targets a specific gap — not a trend.
     </p>
@@ -374,25 +398,30 @@
       <div class="f1-stat">
         <span class="f1-stat-label">Constructors</span>
         <span class="f1-stat-value">P1</span>
-        <span class="f1-stat-pts">244 pts</span>
+        <span class="f1-stat-pts">262 pts</span>
       </div>
       <div class="f1-divider"></div>
       <div class="f1-stat">
         <span class="f1-stat-label">Antonelli</span>
         <span class="f1-stat-value">P1</span>
-        <span class="f1-stat-pts">151 pts</span>
+        <span class="f1-stat-pts">156 pts</span>
       </div>
       <div class="f1-divider"></div>
       <div class="f1-stat">
         <span class="f1-stat-label">Russell</span>
-        <span class="f1-stat-value">P2</span>
-        <span class="f1-stat-pts">93 pts</span>
+        <span class="f1-stat-value">P3</span>
+        <span class="f1-stat-pts">106 pts</span>
       </div>
       <div class="f1-divider"></div>
       <div class="f1-stat">
-        <span class="f1-stat-label">Last Race</span>
-        <span class="f1-stat-value">Monaco GP</span>
-        <span class="f1-stat-pts">Antonelli wins</span>
+        <span class="f1-stat-label">Spanish GP Podium</span>
+        <span class="f1-stat-value">
+          <span style="color:var(--white)">P1</span> <span style="color:#E8002D">Hamilton</span>
+          <span style="color:#555">&nbsp;·&nbsp;</span>
+          <span style="color:var(--white)">P2</span> <span style="color:#00D2BE">Russell</span>
+          <span style="color:#555">&nbsp;·&nbsp;</span>
+          <span style="color:var(--white)">P3</span> <span style="color:#FF8000">Norris</span>
+        </span>
       </div>
     </div>
   </div>
@@ -400,40 +429,16 @@
   <section class="projects">
     <div class="projects-header">
       <span class="projects-title">Projects</span>
-      <span class="projects-total">6 of 6</span>
+      <span class="projects-total">8 of 8</span>
     </div>
 
     <div class="grid">
 
-      <div class="card card--soon">
-        <div class="card-top">
-          <span class="card-pill card-pill--soon">Coming Soon</span>
-          <span class="card-index">01</span>
-        </div>
-        <h2 class="card-name">Decide</h2>
-        <p class="card-desc">
-          A mobile app for reducing decision fatigue. Takes a category — where to eat, what to do, where to go — and returns a ranked shortlist of real nearby options, scored by a custom Excitement Index built on Google Places data.
-        </p>
-      </div>
-
-      <a href="https://layflat.spinachthecow.com" target="_blank" rel="noopener" class="card">
-        <div class="card-top">
-          <span class="card-pill">Web · Crowdsourced</span>
-          <span class="card-index">02</span>
-        </div>
-        <h2 class="card-name">LayFlat</h2>
-        <p class="card-desc">
-          A crowdsourced guide to sleeping in airports. Travelers submit and rate specific spots by noise level, lighting, and security activity. Aggregated into Sleep Scores and noise heatmaps so the next person knows exactly where to go.
-        </p>
-        <div class="card-footer">
-          Open <svg viewBox="0 0 24 24"><polyline points="5 12 19 12"/><polyline points="13 6 19 12 13 18"/></svg>
-        </div>
-      </a>
-
+      <!-- 01 · BREAKEIGHTY -->
       <a href="https://breakeighty.spinachthecow.com" target="_blank" rel="noopener" class="card">
         <div class="card-top">
-          <span class="card-pill">Mobile · Golf</span>
-          <span class="card-index">03</span>
+          <span class="card-pill card-pill--beta">Beta · Mobile · Golf</span>
+          <span class="card-index">01</span>
         </div>
         <h2 class="card-name">BreakEighty</h2>
         <p class="card-desc">
@@ -444,10 +449,11 @@
         </div>
       </a>
 
+      <!-- 02 · CLUTCH -->
       <a href="https://clutch.spinachthecow.com" target="_blank" rel="noopener" class="card">
         <div class="card-top">
-          <span class="card-pill">Mobile · Marketplace</span>
-          <span class="card-index">04</span>
+          <span class="card-pill card-pill--alpha">Alpha · Mobile · Marketplace</span>
+          <span class="card-index">02</span>
         </div>
         <h2 class="card-name">Clutch</h2>
         <p class="card-desc">
@@ -458,24 +464,23 @@
         </div>
       </a>
 
-      <a href="https://puddinpop.spinachthecow.com" target="_blank" rel="noopener" class="card">
+      <!-- 03 · DECIDE -->
+      <div class="card card--soon">
         <div class="card-top">
-          <span class="card-pill">Mobile · Social</span>
-          <span class="card-index">05</span>
+          <span class="card-pill card-pill--soon">Coming Soon</span>
+          <span class="card-index">03</span>
         </div>
-        <h2 class="card-name">PuddinPop</h2>
+        <h2 class="card-name">Decide</h2>
         <p class="card-desc">
-          A wishlist and gift coordination app. Users maintain a private list of things they want, share it selectively with friends and family, and recipients can quietly claim items to avoid duplicates — without spoiling the surprise.
+          A mobile app for reducing decision fatigue. Takes a category — where to eat, what to do, where to go — and returns a ranked shortlist of real nearby options, scored by a custom Excitement Index built on Google Places data.
         </p>
-        <div class="card-footer">
-          Open <svg viewBox="0 0 24 24"><polyline points="5 12 19 12"/><polyline points="13 6 19 12 13 18"/></svg>
-        </div>
-      </a>
+      </div>
 
+      <!-- 04 · GREENSIDE -->
       <a href="https://greenside.spinachthecow.com" target="_blank" rel="noopener" class="card">
         <div class="card-top">
-          <span class="card-pill">Web · Golf / Fantasy</span>
-          <span class="card-index">06</span>
+          <span class="card-pill card-pill--beta">Beta · Web · Golf / Fantasy</span>
+          <span class="card-index">04</span>
         </div>
         <h2 class="card-name">Greenside</h2>
         <p class="card-desc">
@@ -485,6 +490,57 @@
           Open <svg viewBox="0 0 24 24"><polyline points="5 12 19 12"/><polyline points="13 6 19 12 13 18"/></svg>
         </div>
       </a>
+
+      <!-- 05 · KE-KNOW -->
+      <div class="card card--soon">
+        <div class="card-top">
+          <span class="card-pill card-pill--soon">Coming Soon</span>
+          <span class="card-index">05</span>
+        </div>
+        <h2 class="card-name">KE-KNOW</h2>
+        <p class="card-desc">
+          A Maryland Keno prediction engine. KE-KNOW analyzes historical draw data to surface patterns, generate picks, and track live sessions — giving players an informed edge on every game.
+        </p>
+      </div>
+
+      <!-- 06 · LAYFLAT -->
+      <a href="https://layflat.spinachthecow.com" target="_blank" rel="noopener" class="card">
+        <div class="card-top">
+          <span class="card-pill card-pill--alpha">Alpha · Web · Crowdsourced</span>
+          <span class="card-index">06</span>
+        </div>
+        <h2 class="card-name">LayFlat</h2>
+        <p class="card-desc">
+          A crowdsourced guide to sleeping in airports. Travelers submit and rate specific spots by noise level, lighting, and security activity. Aggregated into Sleep Scores and noise heatmaps so the next person knows exactly where to go.
+        </p>
+        <div class="card-footer">
+          Open <svg viewBox="0 0 24 24"><polyline points="5 12 19 12"/><polyline points="13 6 19 12 13 18"/></svg>
+        </div>
+      </a>
+
+      <!-- 07 · PUDDINPOP -->
+      <div class="card card--private">
+        <div class="card-top">
+          <span class="card-pill card-pill--private">Private · Social</span>
+          <span class="card-index">07</span>
+        </div>
+        <h2 class="card-name">PuddinPop</h2>
+        <p class="card-desc">
+          A wishlist and gift coordination app. Users maintain a private list of things they want, share it selectively with friends and family, and recipients can quietly claim items to avoid duplicates — without spoiling the surprise.
+        </p>
+      </div>
+
+      <!-- 08 · SERVSAFE PREP -->
+      <div class="card card--private">
+        <div class="card-top">
+          <span class="card-pill card-pill--private">Private · Training Platform</span>
+          <span class="card-index">08</span>
+        </div>
+        <h2 class="card-name">ServSafe Prep</h2>
+        <p class="card-desc">
+          A private study tool built for an individual pursuing their ServSafe food safety certification. Includes practice exams, topic-by-topic study guides, and curated resource access covering temperature controls, cross-contamination, personal hygiene, allergen awareness, and foodborne illness prevention.
+        </p>
+      </div>
 
     </div>
   </section>
